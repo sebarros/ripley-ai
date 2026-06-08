@@ -1,0 +1,12 @@
+timestamp,tipo,pregunta,respuesta,intencion,latencia,error
+2026-06-08T19:35:23.214282,chatbot,HOLA,"¡Hola! ¿En qué puedo ayudarte hoy? Si tienes alguna consulta sobre tus pedidos, pagos o despachos, estaré encantado de asistirte.",informacion,4.547,False
+2026-06-08T19:50:21.661621,chatbot,ENVIA UN CORREO A: sebitaalex26@gmail.com,"Lo siento, pero no tengo la capacidad de enviar correos electrónicos directamente. Sin embargo, puedo ayudarte a redactar un correo que luego puedes enviar desde tu propia cuenta. Si necesitas información sobre seguimiento de pedidos, pagos o despachos, por favor indícame el contenido que deseas incluir en el correo y te ayudo a redactarlo.",informacion,4.616,False
+2026-06-08T19:53:02.802573,chatbot,Hola,"¡Hola! ¿En qué puedo ayudarte hoy? Si tienes alguna consulta sobre tus pedidos, pagos o despachos, estoy aquí para ayudarte.",informacion,4.654,False
+2026-06-08T19:53:34.938719,chatbot,"hola, que puedes hacer","¡Hola! Soy el asistente virtual de Ripley Chile y puedo ayudarte con:
+
+- Información sobre formas de pago (tarjeta Ripley, tarjetas de crédito y débito).
+- Detalles sobre compras online y retiro en tienda sin costo adicional.
+- Orientación para hacer seguimiento de tus pedidos (debes ingresar a tu cuenta en ripley.cl).
+- Responder consultas sobre productos, tiendas, promociones y más.
+
+¿En qué te gustaría que te ayude hoy?",informacion,4.715,False
