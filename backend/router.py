@@ -1,16 +1,9 @@
-from backend.chatbot.chatbot import responder as chatbot_responder
-from backend.agent.ripley_agent import run_agent
+from backend.chatbot.chatbot import responder_stream
+from backend.agent.ripley_agent import agent_stream
 
+def route_request(user_input, mode="chatbot"):
 
-def route_request(user_input, session_id="default"):
-    """
-    Decide si usar chatbot o agente
-    """
+    if mode == "agent":
+        return agent_stream(user_input)
 
-    # regla simple (puedes mejorar después)
-    agent_keywords = ["comprar", "buscar producto", "recomendar", "cotizar"]
-
-    if any(word in user_input.lower() for word in agent_keywords):
-        return run_agent(user_input)
-
-    return chatbot_responder(user_input, session_id)
+    return responder_stream(user_input)

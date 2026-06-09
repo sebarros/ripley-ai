@@ -1,4 +1,5 @@
 import requests
+from urllib.parse import quote
 
 
 class WeatherAPIClient:
@@ -8,17 +9,41 @@ class WeatherAPIClient:
 
     def get_weather(self, city: str):
 
+        # =========================
+        # CLEAN INPUT
+        # =========================
+        city = city.lower().strip()
+
+        city = city.replace("clima en", "")
+        city = city.replace("tiempo en", "")
+        city = city.replace("temperatura en", "")
+        city = city.replace("que clima hay en", "")
+        city = city.strip()
+
+        print("DEBUG CITY FINAL:", city)
+
+        # =========================
+        # GEO REQUEST
+        # =========================
         geo = requests.get(self.GEO, params={
             "name": city,
-            "count": 1,
+            "count": 3,        
             "language": "es"
         }).json()
 
+        print("DEBUG GEO:", geo)
+
         if "results" not in geo or not geo["results"]:
-            return {"error": "city_not_found"}
+            return {
+                "error": "city_not_found",
+                "city": city
+            }
 
         city_data = geo["results"][0]
 
+        # =========================
+        # WEATHER REQUEST
+        # =========================
         weather = requests.get(self.WEATHER, params={
             "latitude": city_data["latitude"],
             "longitude": city_data["longitude"],
@@ -27,10 +52,9 @@ class WeatherAPIClient:
 
         return {
             "city": city_data["name"],
-            "temperature": weather.get("temperature"),
-            "windspeed": weather.get("windspeed")
+            "temperature": weather.get("temperature", "N/A"),
+            "windspeed": weather.get("windspeed", "N/A")
         }
-
 
 class ProductAPIClient:
 

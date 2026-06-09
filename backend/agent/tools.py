@@ -1,5 +1,6 @@
 from langchain_core.tools import Tool
 from backend.agent.api_clients import WeatherAPIClient, ProductAPIClient
+
 weather_client = WeatherAPIClient()
 product_client = ProductAPIClient()
 
@@ -8,18 +9,40 @@ product_client = ProductAPIClient()
 # WEATHER TOOL
 # =========================
 def weather_tool(city: str):
+
+    # 🔥 LIMPIEZA FUERTE
+    city = city.lower().strip()
+    city = city.replace("clima en", "")
+    city = city.replace("tiempo en", "")
+    city = city.replace("temperatura en", "")
+    city = city.replace("que clima hay en", "")
+    city = city.strip()
+
+    print("DEBUG CITY CLEAN:", city)
+
     data = weather_client.get_weather(city)
 
-    if not data or "error" in data:
-        return f"No encontré el clima en {city}"
+    print("DEBUG WEATHER RAW:", data)
 
-    return f"{data['city']} → {data['temperature']}°C, viento {data['windspeed']} km/h"
+    if not data or "error" in data:
+        return {
+            "city": city,
+            "temperature": "No disponible",
+            "windspeed": "No disponible"
+        }
+
+    return {
+        "city": data.get("city", city),
+        "temperature": data.get("temperature", "N/A"),
+        "windspeed": data.get("windspeed", "N/A")
+    }
 
 
 # =========================
 # PRODUCT SEARCH
 # =========================
 def search_product_tool(query: str):
+
     products = product_client.get_products()
 
     results = [
@@ -36,24 +59,12 @@ def search_product_tool(query: str):
 
     return out
 
-def send_email_tool(data: dict):
-    html = generar_email_ripley(
-        cliente=data.get("nombre", "cliente"),
-        clima=data.get("clima"),
-        productos=data.get("productos")
-    )
-
-    return enviar_promocion(
-        asunto="🛍️ Ofertas personalizadas Ripley para ti",
-        cuerpo_html=html,
-        destinatario=data.get("email")
-    )
-
 
 # =========================
 # LIST PRODUCTS
 # =========================
 def list_products_tool(_):
+
     products = product_client.get_products()
 
     out = "🛍️ Catálogo:\n"

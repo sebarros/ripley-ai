@@ -10,3 +10,23 @@ timestamp,tipo,pregunta,respuesta,intencion,latencia,error
 - Responder consultas sobre productos, tiendas, promociones y más.
 
 ¿En qué te gustaría que te ayude hoy?",informacion,4.715,False
+2026-06-09T11:11:54.870720,chatbot,hola,"¡Hola! ¿En qué puedo ayudarte hoy? Si tienes alguna consulta sobre pedidos, pagos o devoluciones en Ripley, por favor dime más detalles y te ayudo.",informacion,5.011,False
+2026-06-09T11:12:44.552956,chatbot,mi nombre es sebastian,"¡Hola, Sebastián! ¿En qué puedo ayudarte hoy? Si tienes alguna consulta sobre tu pedido, pago o garantía de productos en Ripley, por favor dime más detalles y te ayudo.",informacion,4.553,False
+2026-06-09T11:15:03.956802,chatbot,"Hola, mi nombre es sebastian","¡Hola, Sebastián! ¿En qué puedo ayudarte hoy? Si tienes alguna consulta sobre tus pedidos, pagos o despachos, por favor dime más detalles para poder asistirte.",informacion,4.681,False
+2026-06-09T11:15:18.748139,chatbot,"quiero comprar ropa de hombre, dame una lista","¡Perfecto, Sebastián! Aquí tienes una lista de ropa de hombre que puedes encontrar en Ripley.cl:
+
+1. Poleras y camisetas
+2. Camisas casuales y formales
+3. Pantalones jeans y de vestir
+4. Chaquetas y parkas
+5. Polerones y sweaters
+6. Shorts y bermudas
+7. Zapatos y zapatillas
+8. Ropa interior y calcetines
+
+Si te interesa algún tipo específico, como poleras o jeans, dime tu preferencia y te puedo recomendar productos concretos. Recuerda que puedes pagar con tarjeta Ripley, tarjetas de crédito y débito. ¿Te gustaría ver alguna categoría en particular?",compra,4.849,False
+2026-06-09T11:16:22.029058,chatbot,dame una lista de los productos disponibles,"Sebastián, no tengo acceso en tiempo real al stock de productos disponibles en Ripley.cl. Para ver la lista actualizada de ropa de hombre, te recomiendo ingresar directamente a [Ripley.cl](https://www.ripley.cl) y buscar en la sección ""Hombre"". Allí podrás ver todos los productos disponibles, filtrar por categorías, marcas y precios.
+
+Si necesitas ayuda para navegar el sitio o tienes dudas sobre algún producto específico, ¡avísame!",informacion,4.896,False
+2026-06-09T11:16:41.135073,chatbot,cual es mi nombre,"Tu nombre es Sebastián. Si necesitas ayuda con tu compra o tienes alguna otra consulta, ¡avísame!",informacion,4.027,False
+2026-06-09T11:17:54.195207,chatbot,hola,"¡Hola, Sebastián! ¿En qué puedo ayudarte hoy? Si tienes alguna consulta sobre ropa de hombre, tus pedidos, pagos o devoluciones en Ripley, dime más detalles y te ayudo. Si tienes otra pregunta, también puedes decírmelo.",informacion,4.401,False
