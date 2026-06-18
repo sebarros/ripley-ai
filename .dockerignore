@@ -1,54 +1,49 @@
 # =========================
-# 🔥 Entornos virtuales
-# =========================
-.venv/
-venv/
-env/
-
-# =========================
-# 🐍 Python
+# PYTHON CACHE
 # =========================
 __pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-dist/
-build/
-*.egg
+*.pyc
+*.pyo
+*.pyd
 
 # =========================
-# 📓 Jupyter
-# =========================
-.ipynb_checkpoints/
-
-# =========================
-# 🔐 Variables de entorno (IMPORTANTE)
+# ENVIRONMENT
 # =========================
 .env
 .env.*
+venv/
+.venv/
 
 # =========================
-# 🖥️ Sistema operativo
+# GIT
+# =========================
+.git/
+.gitignore
+
+# =========================
+# LOGS (NO VAN A DOCKER IMAGE)
+# =========================
+data/logs/
+*.log
+
+# =========================
+# STREAMLIT CACHE
+# =========================
+.streamlit/
+
+# =========================
+# OS FILES
 # =========================
 .DS_Store
 Thumbs.db
 
 # =========================
-# 🧑‍💻 IDEs
+# TEST / DEV FILES
 # =========================
-.vscode/
-.idea/
-*.swp
-*.swo
+tests/
+*.ipynb
 
 # =========================
-# 📦 Node (si se usa en el futuro)
+# OPTIONAL (si tienes modelos pesados locales)
 # =========================
-node_modules/
-
-# =========================
-# 📄 Logs y temporales
-# =========================
-*.log
-*.tmp
-*.cache
+models/

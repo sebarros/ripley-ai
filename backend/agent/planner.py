@@ -1,19 +1,30 @@
 import re
 
-
 class Planner:
 
     def create_plan(self, query: str):
 
         q = query.lower()
 
-        if re.search(r"clima|tiempo|temperatura|weather|puerto montt|santiago|temuco|osorno", q):
+        # CLIMA
+        if re.search(
+            r"clima|tiempo|temperatura|pronostico|pronóstico|weather",
+            q
+        ):
             return {"tool": "weather"}
 
-        if re.search(r"ropa|polera|jean|zapatilla|chaqueta|parka|vestir", q):
+        # PRODUCTOS
+        if re.search(
+            r"ropa|polera|jean|zapatilla|chaqueta|parka|vestir|iphone|notebook|televisor|celular",
+            q
+        ):
             return {"tool": "search_product"}
 
-        if re.search(r"catálogo|catalogo|lista|productos", q):
+        # LISTADO
+        if re.search(
+            r"catálogo|catalogo|lista|productos",
+            q
+        ):
             return {"tool": "list_products"}
 
         return {"tool": None}

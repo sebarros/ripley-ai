@@ -1,6 +1,7 @@
 # 🛍️ Ripley Agent - Asistente Inteligente de Compras y Clima
 
-Sistema de agente inteligente conversacional que actúa como asistente de compras para Ripley Chile, capaz de consultar clima, recomendar ropa y buscar productos utilizando herramientas externas, memoria y planificación de intenciones.
+Sistema de agente inteligente conversacional que actúa como asistente de compras para Ripley Chile, capaz de consultar clima,
+recomendar ropa y buscar productos utilizando herramientas externas, memoria y planificación de intenciones.
 
 ---
 
@@ -27,7 +28,7 @@ El sistema está compuesto por 5 módulos principales:
 - Ejecuta el loop conversacional
 
 ### 2. `planner.py` (Clasificador de intención)
-- Detecta la intención del usuario usando regex
+- Detecta la intención del usuario usando regex o reglas simples
 - Decide qué herramienta usar:
   - 🌤️ clima
   - 🛍️ búsqueda de productos
@@ -38,7 +39,7 @@ El sistema está compuesto por 5 módulos principales:
 - `ProductAPIClient`: obtiene productos desde FakeStore API
 
 ### 4. `tools.py` (Herramientas del agente)
-Implementa funciones reutilizables:
+Funciones reutilizables:
 
 - 🌤️ `weather_tool`: consulta clima por ciudad
 - 🔎 `search_product_tool`: busca productos por texto
@@ -50,7 +51,7 @@ Todas están registradas en `TOOL_MAP`.
 - 🧠 Memoria corta (últimos 15 mensajes)
 - 🧠 Memoria larga (perfil del usuario)
 - 📌 Estado conversacional (ej: recomendación post-clima)
-- 🔎 Recuperación semántica simple con similitud de texto
+- 🔎 Recuperación básica por similitud de texto
 
 ---
 
@@ -86,6 +87,55 @@ El agente puede:
 
 - Buscar productos por texto
 - Listar catálogo completo
-- Recomendar productos si el clima lo sugiere
+- Recomendar productos según clima o contexto
 
 📦 Fuente de datos: https://fakestoreapi.com
+
+---
+
+# 🚀 Cómo ejecutar el proyecto
+
+## 🧱 1. Requisitos previos
+
+Antes de ejecutar, asegúrate de tener:
+
+- Docker instalado → https://www.docker.com/
+- Cuenta/API Key de OpenAI o Azure OpenAI
+- Archivo `.env` configurado
+
+---
+
+## ⚙️ 2. Configurar variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+OPENAI_API_KEY=tu_api_key
+OPENAI_BASE_URL=https://models.inference.ai.azure.com
+```
+⚠️ Importante:
+
+- No usar comillas
+- No dejar espacios extra
+
+---
+
+## 🐳 3. Ejecutar el contenedor
+
+Una vez configurado el `.env`, ejecuta:
+
+```bash
+docker run --rm -p 8501:8501 --env-file .env ripley-ai
+```
+## 🌐 4. Abrir la aplicación
+
+Luego abre en tu navegador:
+
+http://localhost:8501
+
+## 🧪 5. Verificación rápida (si algo falla)
+
+```bash
+docker ps -a
+docker logs <container_id>
+```

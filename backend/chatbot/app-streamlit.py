@@ -4,6 +4,7 @@ import time
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.messages import HumanMessage, SystemMessage
+from backend.security import validate_input, sanitize_input
 
 # =========================
 # CONFIG API
@@ -194,21 +195,58 @@ for m in messages:
 # =========================
 if prompt := st.chat_input("Escribe tu mensaje..."):
 
+    # =========================
+    # VALIDACIÓN SEGURIDAD
+    # =========================
+
+    valid, error = validate_input(prompt)
+
+    if not valid:
+        st.error(error)
+        st.stop()
+
+    prompt = sanitize_input(prompt)
+
+    # =========================
+    # MEMORIA NOMBRE
+    # =========================
+
     nombre_detectado = extraer_nombre(prompt)
+
     if nombre_detectado:
         st.session_state.user_name = nombre_detectado
 
-    messages.append({"role": "user", "content": prompt})
+    # =========================
+    # MENSAJE USUARIO
+    # =========================
+
+    messages.append({
+        "role": "user",
+        "content": prompt
+    })
 
     with st.chat_message("user"):
         st.markdown(prompt)
 
+    # =========================
+    # RESPUESTA IA
+    # =========================
+
     with st.chat_message("assistant"):
+
         placeholder = st.empty()
         final = ""
 
         for partial in responder_stream(prompt, messages):
+
             placeholder.markdown(partial)
             final = partial
 
-    messages.append({"role": "assistant", "content": final})
+    # =========================
+    # GUARDAR RESPUESTA
+    # =========================
+
+    messages.append({
+        "role": "assistant",
+        "content": final
+    })

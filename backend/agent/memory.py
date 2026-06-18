@@ -1,5 +1,6 @@
 from collections import deque
 from difflib import SequenceMatcher
+import re
 
 
 class MemoryManager:
@@ -15,8 +16,13 @@ class MemoryManager:
     def store_short(self, text):
         self.short_memory.append(text)
 
-        if "mi nombre es" in text.lower():
-            self.long_memory["nombre"] = text.split()[-1].capitalize()
+        match = re.search(
+            r"(mi nombre es|me llamo)\s+([a-záéíóúñ]+)",
+            text.lower()
+        )
+
+        if match:
+            self.long_memory["nombre"] = match.group(2).capitalize()
 
     def store_response(self, response):
         self.short_memory.append(response)

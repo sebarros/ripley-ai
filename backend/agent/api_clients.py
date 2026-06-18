@@ -1,64 +1,93 @@
 import requests
-from urllib.parse import quote
 
 
 class WeatherAPIClient:
 
-    GEO = "https://geocoding-api.open-meteo.com/v1/search"
-    WEATHER = "https://api.open-meteo.com/v1/forecast"
 
-    def get_weather(self, city: str):
+    GEO="https://geocoding-api.open-meteo.com/v1/search"
+    WEATHER="https://api.open-meteo.com/v1/forecast"
 
-        # =========================
-        # CLEAN INPUT
-        # =========================
-        city = city.lower().strip()
 
-        city = city.replace("clima en", "")
-        city = city.replace("tiempo en", "")
-        city = city.replace("temperatura en", "")
-        city = city.replace("que clima hay en", "")
-        city = city.strip()
+    def get_weather(self, city):
 
-        print("DEBUG CITY FINAL:", city)
+        city=city.lower().strip()
 
-        # =========================
-        # GEO REQUEST
-        # =========================
-        geo = requests.get(self.GEO, params={
-            "name": city,
-            "count": 3,        
-            "language": "es"
-        }).json()
 
-        print("DEBUG GEO:", geo)
-
-        if "results" not in geo or not geo["results"]:
-            return {
-                "error": "city_not_found",
-                "city": city
+        geo=requests.get(
+            self.GEO,
+            params={
+                "name":city,
+                "count":1,
+                "language":"es"
             }
+        ).json()
 
-        city_data = geo["results"][0]
 
-        # =========================
-        # WEATHER REQUEST
-        # =========================
-        weather = requests.get(self.WEATHER, params={
-            "latitude": city_data["latitude"],
-            "longitude": city_data["longitude"],
-            "current_weather": True
-        }).json().get("current_weather", {})
+        if "results" not in geo:
+
+            return None
+
+
+        c=geo["results"][0]
+
+
+        weather=requests.get(
+            self.WEATHER,
+            params={
+                "latitude":c["latitude"],
+                "longitude":c["longitude"],
+                "current_weather":True
+            }
+        ).json()
+
+
+        w=weather["current_weather"]
+
 
         return {
-            "city": city_data["name"],
-            "temperature": weather.get("temperature", "N/A"),
-            "windspeed": weather.get("windspeed", "N/A")
+
+            "city":c["name"],
+            "temperature":w["temperature"],
+            "windspeed":w["windspeed"]
+
         }
+
+
 
 class ProductAPIClient:
 
-    BASE = "https://fakestoreapi.com"
+
+    BASE="https://fakestoreapi.com"
+
+
+
+    translations={
+
+        "men's clothing":"Ropa hombre",
+        "women's clothing":"Ropa mujer",
+        "jewelery":"Joyería",
+        "electronics":"Electrónica"
+
+    }
+
 
     def get_products(self):
-        return requests.get(f"{self.BASE}/products").json()
+
+
+        products=requests.get(
+            f"{self.BASE}/products"
+        ).json()
+
+
+
+        for p in products:
+
+            category=p.get("category","")
+
+            p["category"]=self.translations.get(
+                category,
+                category
+            )
+
+
+        return products
