@@ -1,11 +1,11 @@
-# 🛍️ Ripley Agent - Asistente Inteligente de Compras y Clima
+# Ripley Agent - Asistente Inteligente de Compras y Clima
 
 Sistema de agente inteligente conversacional que actúa como asistente de compras para Ripley Chile, capaz de consultar clima,
 recomendar ropa y buscar productos utilizando herramientas externas, memoria y planificación de intenciones.
 
 ---
 
-## 📌 Descripción General
+## Descripción General
 
 Este proyecto implementa un **agente autónomo basado en LLM (GPT-4.1-mini)** que:
 
@@ -17,7 +17,7 @@ Este proyecto implementa un **agente autónomo basado en LLM (GPT-4.1-mini)** qu
 
 ---
 
-## 🧠 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El sistema está compuesto por 5 módulos principales:
 
@@ -30,9 +30,9 @@ El sistema está compuesto por 5 módulos principales:
 ### 2. `planner.py` (Clasificador de intención)
 - Detecta la intención del usuario usando regex o reglas simples
 - Decide qué herramienta usar:
-  - 🌤️ clima
-  - 🛍️ búsqueda de productos
-  - 📦 listado de productos
+  - clima
+  - búsqueda de productos
+  - listado de productos
 
 ### 3. `api_clients.py` (Integraciones externas)
 - `WeatherAPIClient`: obtiene clima desde Open-Meteo
@@ -41,21 +41,21 @@ El sistema está compuesto por 5 módulos principales:
 ### 4. `tools.py` (Herramientas del agente)
 Funciones reutilizables:
 
-- 🌤️ `weather_tool`: consulta clima por ciudad
-- 🔎 `search_product_tool`: busca productos por texto
-- 📋 `list_products_tool`: muestra catálogo
+- `weather_tool`: consulta clima por ciudad
+- `search_product_tool`: busca productos por texto
+- `list_products_tool`: muestra catálogo
 
 Todas están registradas en `TOOL_MAP`.
 
 ### 5. `memory.py` (Sistema de memoria)
-- 🧠 Memoria corta (últimos 15 mensajes)
-- 🧠 Memoria larga (perfil del usuario)
-- 📌 Estado conversacional (ej: recomendación post-clima)
-- 🔎 Recuperación básica por similitud de texto
+- Memoria corta (últimos 15 mensajes)
+- Memoria larga (perfil del usuario)
+- Estado conversacional (ej: recomendación post-clima)
+- Recuperación básica por similitud de texto
 
 ---
 
-## 🔄 Flujo del Agente
+## Flujo del Agente
 
 1. Usuario envía mensaje  
 2. Se guarda en memoria corta  
@@ -69,7 +69,7 @@ Todas están registradas en `TOOL_MAP`.
 
 ---
 
-## 🌤️ Funcionalidad de Clima + Recomendación
+## Funcionalidad de Clima + Recomendación
 
 Cuando el usuario consulta el clima:
 
@@ -81,7 +81,7 @@ Cuando el usuario consulta el clima:
 
 ---
 
-## 🛍️ Funcionalidades de Productos
+## Funcionalidades de Productos
 
 El agente puede:
 
@@ -89,13 +89,13 @@ El agente puede:
 - Listar catálogo completo
 - Recomendar productos según clima o contexto
 
-📦 Fuente de datos: https://fakestoreapi.com
+Fuente de datos: https://fakestoreapi.com
 
 ---
 
-# 🚀 Cómo ejecutar el proyecto
+# Cómo ejecutar el proyecto
 
-## 🧱 1. Requisitos previos
+## 1. Requisitos previos
 
 Antes de ejecutar, asegúrate de tener:
 
@@ -105,7 +105,7 @@ Antes de ejecutar, asegúrate de tener:
 
 ---
 
-## ⚙️ 2. Configurar variables de entorno
+## 2. Configurar variables de entorno
 
 Crea un archivo `.env` en la raíz del proyecto:
 
@@ -120,20 +120,20 @@ OPENAI_BASE_URL=https://models.inference.ai.azure.com
 
 ---
 
-## 🐳 3. Ejecutar el contenedor
+## 3. Ejecutar el contenedor
 
 Una vez configurado el `.env`, ejecuta:
 
 ```bash
 docker run --rm -p 8501:8501 --env-file .env ripley-ai
 ```
-## 🌐 4. Abrir la aplicación
+## 4. Abrir la aplicación
 
 Luego abre en tu navegador:
 
 http://localhost:8501
 
-## 🧪 5. Verificación rápida (si algo falla)
+## 5. Verificación rápida (si algo falla)
 
 ```bash
 docker ps -a
