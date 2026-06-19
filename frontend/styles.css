@@ -52,7 +52,12 @@ html, body {
     color: var(--text);
 }
 
-.stApp           { background: var(--bg) !important; }
+.stApp {
+    background:
+        radial-gradient(circle at 88% 0%,  rgba(147,51,234,0.08), transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(107,33,168,0.06), transparent 50%),
+        var(--bg) !important;
+}
 .block-container { padding-top: 1.4rem !important; padding-bottom: 2rem !important; max-width: 1200px; }
 
 /* ══════════════════════════════════════════
@@ -302,6 +307,103 @@ hr { border:none !important; border-top:1px solid var(--border) !important; marg
 ::-webkit-scrollbar-track { background:var(--bg); }
 ::-webkit-scrollbar-thumb { background:rgba(147,51,234,0.28); border-radius:10px; }
 ::-webkit-scrollbar-thumb:hover { background:rgba(147,51,234,0.50); }
+
+/* ══════════════════════════════════════════
+   LOGO (navbar)
+══════════════════════════════════════════ */
+.app-logo-wrap {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-top: 6px;
+}
+
+/* ══════════════════════════════════════════
+   PANTALLA DE BIENVENIDA (primer ingreso)
+══════════════════════════════════════════ */
+.welcome-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 42vh;
+    padding: 2.2rem 1rem 0.4rem;
+    animation: welcomeFadeUp 0.5s ease;
+}
+.welcome-icon { margin-bottom: 16px; }
+.welcome-icon img { box-shadow: var(--shadow-md); }
+.welcome-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: var(--text) !important;
+    margin: 0 0 8px !important;
+    letter-spacing: -0.4px;
+}
+.welcome-subtitle {
+    font-size: 15px !important;
+    color: var(--muted) !important;
+    margin: 0 !important;
+    max-width: 440px;
+}
+.welcome-pill-label {
+    text-align: center !important;
+    font-size: 13px !important;
+    color: var(--primary-lt) !important;
+    font-weight: 600 !important;
+    margin: 26px 0 10px !important;
+}
+@keyframes welcomeFadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════
+   HISTORIAL DE CHATS (barra lateral)
+══════════════════════════════════════════ */
+section[data-testid="stSidebar"] .sidebar-section-title {
+    font-size:       11px;
+    font-weight:     700;
+    letter-spacing:  0.6px;
+    text-transform:  uppercase;
+    color:           rgba(255,255,255,0.55) !important;
+    margin:          4px 0 8px;
+}
+section[data-testid="stSidebar"] .chat-history-item.empty {
+    font-size:     12px;
+    color:         rgba(255,255,255,0.45) !important;
+    border:        1px dashed rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding:       10px 12px;
+    text-align:    center;
+    margin-bottom: 4px;
+}
+section[data-testid="stSidebar"] .chat-history-meta {
+    font-size: 11px !important;
+    color:     rgba(255,255,255,0.4) !important;
+    margin:    2px 0 0 2px !important;
+}
+/* Botones de historial: estilo translúcido (no el morado sólido global) */
+section[data-testid="stSidebar"] [class*="st-key-hist_"] button {
+    background:    rgba(255,255,255,0.08) !important;
+    border:        1px solid rgba(255,255,255,0.14) !important;
+    color:         #EDE9FE !important;
+    font-weight:   500 !important;
+    box-shadow:    none !important;
+    text-align:    left !important;
+    justify-content: flex-start !important;
+    white-space:   nowrap;
+    overflow:      hidden;
+    text-overflow: ellipsis;
+}
+section[data-testid="stSidebar"] [class*="st-key-hist_"] button:hover {
+    background: rgba(255,255,255,0.16) !important;
+    transform:  none !important;
+}
+section[data-testid="stSidebar"] [class*="st-key-hist_del_"] button {
+    padding:   0.4rem 0.5rem !important;
+    font-size: 13px !important;
+}
 
 /* ══════════════════════════════════════════
    RESPONSIVE

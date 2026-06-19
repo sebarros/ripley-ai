@@ -1,12 +1,139 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import time
+import os
+import base64
 import html as html_lib
 import re
 
-
 def is_dark_mode() -> bool:
     return st.get_option("theme.base") == "dark"
+
+
+# ══════════════════════════════════════════════════════
+# LOGO — busca un logo propio en /assets, si no existe usa emoji
+# ══════════════════════════════════════════════════════
+
+_ASSET_DIR = os.path.join(os.path.dirname(__file__), "assets")
+_LOGO_CANDIDATES = ["ripley_logo.png", "ripley_logo.svg", "ripley_logo.jpg", "ripley_logo.jpeg"]
+
+
+def _find_logo_path():
+    for name in _LOGO_CANDIDATES:
+        p = os.path.join(_ASSET_DIR, name)
+        if os.path.exists(p):
+            return p
+    return None
+
+
+def get_logo_html(size: int = 40) -> str:
+    """
+    Devuelve un <img> con el logo si existe en /assets/ripley_logo.(png|svg|jpg),
+    o un emoji de respaldo si el usuario aún no ha subido uno.
+    """
+    path = _find_logo_path()
+    if path:
+        ext = path.rsplit(".", 1)[-1].lower()
+        mime = "image/svg+xml" if ext == "svg" else f"image/{'jpeg' if ext == 'jpg' else ext}"
+        with open(path, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode()
+        return (
+            f'<img src="data:{mime};base64,{b64}" '
+            f'style="height:{size}px;width:auto;border-radius:8px;vertical-align:middle;" '
+            f'alt="Ripley">'
+        )
+    return f'<span style="font-size:{int(size * 0.95)}px;line-height:1;">🛍️</span>'
+
+
+# ══════════════════════════════════════════════════════
+# PANTALLA DE BIENVENIDA — centrada, estilo "primer mensaje"
+# ══════════════════════════════════════════════════════
+
+def render_welcome_screen(title: str, subtitle: str):
+    logo_html = get_logo_html(size=46)
+    st.markdown(f"""
+    <div class="welcome-wrap">
+        <div class="welcome-icon">{logo_html}</div>
+        <h1 class="welcome-title">{title}</h1>
+        <p class="welcome-subtitle">{subtitle}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+def use_inline_chat_input():
+    """
+    Anula el anclaje fijo del chat_input de Streamlit para que, mientras no
+    haya conversación, el input aparezca dentro del flujo normal de la
+    página (debajo del saludo) en vez de pegado abajo del todo. En cuanto
+    exista historial, esta función deja de llamarse y el input vuelve a
+    su comportamiento normal (anclado abajo).
+    """
+    st.markdown("""
+    <style>
+    [data-testid="stBottom"] {
+        position: relative !important;
+        inset: auto !important;
+        padding: 6px 0 4px !important;
+    }
+    [data-testid="stBottom"] > div { max-width: 640px !important; }
+    </style>
+    """, unsafe_allow_html=True)
+
+
+# ══════════════════════════════════════════════════════
+# HISTORIAL DE CHATS — barra lateral
+# ══════════════════════════════════════════════════════
+
+def render_sidebar_history():
+    """
+    Muestra en la barra lateral el registro de la conversación de cada
+    sección (Agente / Asistente) por separado, sin mezclarlas, con acceso
+    directo y opción para limpiar cada una.
+    """
+    with st.sidebar:
+        st.markdown(f"""
+        <div style="display:flex;align-items:center;gap:10px;margin:2px 0 22px;">
+            {get_logo_html(34)}
+            <div>
+                <p style="margin:0;font-weight:700;font-size:15px;color:#fff;">Ripley AI</p>
+                <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.65);">Registro de chats</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        _render_history_section("🤖 Agente Inteligente", "agent", nav_index=2)
+        st.markdown("<div style='height:20px;'></div>", unsafe_allow_html=True)
+        _render_history_section("💬 Asistente Virtual", "messages", nav_index=1)
+
+
+def _render_history_section(label: str, session_key: str, nav_index: int):
+    msgs = st.session_state.get(session_key, [])
+    st.markdown(f'<p class="sidebar-section-title">{label}</p>', unsafe_allow_html=True)
+
+    if not msgs:
+        st.markdown(
+            '<div class="chat-history-item empty">Aún no hay conversación</div>',
+            unsafe_allow_html=True
+        )
+        return
+
+    first_user = next((m["content"] for m in msgs if m["role"] == "user"), "Conversación")
+    preview = (first_user[:34] + "…") if len(first_user) > 34 else first_user
+
+    col_a, col_b = st.columns([5, 1])
+    with col_a:
+        if st.button(f"💭 {preview}", key=f"hist_{session_key}", use_container_width=True):
+            st.session_state.nav_jump = nav_index
+            st.rerun()
+    with col_b:
+        if st.button("🗑️", key=f"hist_del_{session_key}"):
+            st.session_state[session_key] = []
+            st.rerun()
+
+    st.markdown(
+        f'<p class="chat-history-meta">{len(msgs)} mensajes</p>',
+        unsafe_allow_html=True
+    )
 
 
 def _md_to_html(text: str) -> str:
@@ -152,6 +279,21 @@ def render_chat(messages: list):
     components.html(html, height=height, scrolling=True)
 
 
+def _store_tool_metadata(meta: dict):
+    """
+    Guarda en session_state el resultado de la herramienta (clima o
+    productos) que el agente haya usado en el último turno, para que
+    el correo de 'Promoción con productos/clima' use datos reales.
+    """
+    tipo = meta.get("type")
+    data = meta.get("data")
+
+    if tipo == "weather" and isinstance(data, dict):
+        st.session_state["ultimo_clima"] = data
+    elif tipo == "products" and isinstance(data, list):
+        st.session_state["ultimos_productos"] = data
+
+
 def stream_response(generator, delay: float = 0.012) -> str:
     dark   = is_dark_mode()
     bot_bg = "#221840" if dark else "#FFFFFF"
@@ -163,6 +305,15 @@ def stream_response(generator, delay: float = 0.012) -> str:
     displayed   = ""
 
     for chunk in generator:
+
+        # El agente puede entregar, al final, un "chunk" especial (dict)
+        # con el resultado de una herramienta (clima/productos) en vez de
+        # texto. Se guarda aparte y no se muestra en la burbuja del chat.
+        if isinstance(chunk, dict):
+            if chunk.get("__meta__"):
+                _store_tool_metadata(chunk)
+            continue
+
         full_text = chunk
         new_chars = full_text[len(displayed):]
         for char in new_chars:

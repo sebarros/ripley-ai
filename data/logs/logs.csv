@@ -260,3 +260,128 @@ Si quieres que te ayude a encontrar algo específico o con alguna característic
 
 Si quieres que te ayude con algún producto en particular o buscas algo específico, dime nomás. ¡Estoy aquí para ayudarte!",list_products,0,False
 2026-06-18T21:40:28.831790,agent,clima en puerto montt,"En Puerto Montt, la temperatura actual es de 4.9°C y hay un viento de 9.4 km/h. Si necesitas algo más, como ropa abrigada para este clima, puedo ayudarte a encontrar productos en Ripley. ¿Te gustaría?",weather,0,False
+2026-06-19T16:51:47.298610,chatbot,"Hola, mi nombre es Sebastian","¡Hola, Sebastián! ¿En qué puedo ayudarte hoy?",consulta,3.544,False
+2026-06-19T16:52:03.997372,chatbot,Cual es la capital de japon?,No tengo información sobre esa consulta. ¿Hay algo relacionado con Ripley Chile en lo que pueda ayudarte?,consulta,3.896,False
+2026-06-19T16:52:16.281082,chatbot,Como devuelvo un producto,"Para devolver un producto en Ripley Chile, necesitas tener la boleta de compra y el producto debe estar en buen estado. ¿Quieres que te explique los pasos para hacer la devolución?",consulta,4.827,False
+2026-06-19T16:53:26.323789,chatbot,Hola,"¡Hola de nuevo, Sebastián! ¿En qué puedo ayudarte ahora?",consulta,3.029,False
+2026-06-19T16:58:01.607143,chatbot,¿Cómo devuelvo un producto?,"Para devolver un producto en Ripley, debes seguir estos pasos:
+
+1. Asegúrate de tener la boleta o comprobante de compra.
+2. El producto debe estar en buen estado, sin daños y con sus etiquetas originales.
+3. Puedes llevar el producto y la boleta a cualquier tienda Ripley para hacer la devolución.
+4. En la tienda, el personal te ayudará a gestionar la devolución o cambio según corresponda.
+
+Si compraste online, también puedes consultar si hay opciones para devolverlo en tienda o solicitar instrucciones específicas en tu pedido.
+
+¿Quieres que te ayude con algo más sobre devoluciones o compras?",consulta,11.218,False
+2026-06-19T16:58:19.595873,agent,¿Cuál es el clima en Puerto Montt?,"Hola, en Puerto Montt la temperatura actual es de 10.2°C y hay un viento de 20.7 km/h. ¿Quieres que te ayude con algo más relacionado con Ripley?",weather,0,False
+2026-06-19T16:58:46.037101,agent,Lista de productos,"Claro, aquí te dejo una lista de productos disponibles en Ripley Chile:
+
+**Ropa:**
+- Polera Nike Sportswear Club - $19.990 CLP
+- Polerón Adidas Essentials - $34.990 CLP
+- Jeans Levi's 511 Slim Fit - $59.990 CLP
+- Chaqueta Columbia Impermeable - $69.990 CLP
+
+**Calzado:**
+- Zapatillas Adidas Runfalcon 3.0 - $49.990 CLP
+- Zapatillas Nike Revolution 6 - $52.990 CLP
+- Zapatillas Puma Smash v2 - $39.990 CLP
+
+**Tecnología:**
+- Notebook Lenovo IdeaPad 3 Ryzen 5 - $549.990 CLP
+- MacBook Air M2 13 pulgadas - $1.199.990 CLP
+- Samsung Galaxy A54 - $399.990 CLP
+- iPhone 13 128GB - $699.990 CLP
+- Audífonos JBL Tune 510BT - $29.990 CLP
+- Parlante Bluetooth Sony SRS-XB13 - $34.990 CLP
+
+**Hogar:**
+- Televisor Samsung 50'' 4K UHD - $429.990 CLP
+- Refrigerador LG 420L No Frost - $599.990 CLP
+- Sofá Seccional 3 Cuerpos Gris - $349.990 CLP
+- Set de Sábanas 2 Plazas Algodón - $24.990 CLP
+
+**Accesorios:**
+- Mochila Urbana Jansport SuperBreak - $19.990 CLP
+- Reloj Casio Digital Classic - $14.990 CLP
+
+**Belleza:**
+- Perfume Versace Eros 100ml - $89.990 CLP
+
+Si quieres que te ayude a encontrar algo específico o con alguna característica, dime nomás. ¿Te interesa algún producto en particular?",list_products,0,False
+2026-06-19T16:58:56.157048,agent,clima en temuco,"Hola, en Temuco la temperatura actual es de 10.4°C y hay un viento de 17.2 km/h. ¿Quieres que te ayude con algo más relacionado con Ripley?",weather,0,False
+2026-06-19T16:59:17.242956,chatbot,cual es la capital de japon,La capital de Japón es Tokio. ¿Quieres saber algo más sobre Japón o prefieres que te ayude con alguna consulta sobre Ripley?,consulta,4.169,False
+2026-06-19T17:02:45.161840,chatbot,Necesito contactar soporte,"Hola, para contactar con soporte de Ripley puedes ingresar a tu cuenta en nuestro sitio web y desde ahí revisar tus pedidos o solicitar ayuda. También puedes visitar la sección de ayuda o contacto en la página de Ripley para encontrar opciones como chat en línea, teléfono o correo electrónico según tu necesidad. ¿Quieres que te ayude a encontrar el enlace o algún dato específico?",consulta,7.847,False
+2026-06-19T17:02:59.689315,chatbot,y como devuelvo un producto?,"Para devolver un producto en Ripley, debes tener la boleta de compra y el producto debe estar en buen estado. 
+
+Los pasos son:
+
+1. Reúne el producto y la boleta.
+2. Puedes acercarte a cualquier tienda Ripley para hacer la devolución.
+3. También puedes revisar si tu compra permite devolución a través del sitio web o contactando soporte para coordinar.
+
+Si necesitas, puedo ayudarte a encontrar la tienda más cercana o darte más detalles sobre el proceso. ¿Quieres?",consulta,9.44,False
+2026-06-19T17:03:22.041721,chatbot,y si por ejemplo el producto se me rompio todavia lo puedo devolver?,"Si el producto se rompió, puedes hacer uso de la garantía legal, que en Ripley es de 6 meses desde la compra. Para esto, debes presentar la boleta y el producto para que puedan evaluar el problema.
+
+La garantía cubre defectos de fabricación, pero no daños por mal uso. Te recomiendo acercarte a una tienda Ripley o contactar soporte para iniciar el proceso de garantía.
+
+¿Quieres que te explique cómo hacer el reclamo paso a paso?",consulta,8.404,False
+2026-06-19T17:04:32.336698,chatbot,quiero comprar ropa para el frio,"¡Perfecto! En Ripley encontrarás una gran variedad de ropa para el frío, como chaquetas, abrigos, sweaters, polerones y más. 
+
+Te recomiendo buscar prendas que sean cómodas y abrigadoras, como las que tienen materiales térmicos o forro polar, ideales para mantener el calor. 
+
+Puedes ingresar a la sección de ropa en nuestro sitio web y filtrar por “ropa de invierno” o “ropa para frío” para ver todas las opciones disponibles.
+
+¿Quieres que te ayude a encontrar algunas prendas específicas o con alguna característica en particular?",consulta,10.523,False
+2026-06-19T17:05:07.945776,agent,Lista los productos disponibles,"Claro, aquí tienes los productos disponibles en Ripley Chile:
+
+**Ropa:**
+- Polera Nike Sportswear Club - $19.990 CLP
+- Polerón Adidas Essentials - $34.990 CLP
+- Jeans Levi's 511 Slim Fit - $59.990 CLP
+- Chaqueta Columbia Impermeable - $69.990 CLP
+
+**Calzado:**
+- Zapatillas Adidas Runfalcon 3.0 - $49.990 CLP
+- Zapatillas Nike Revolution 6 - $52.990 CLP
+- Zapatillas Puma Smash v2 - $39.990 CLP
+
+**Tecnología:**
+- Notebook Lenovo IdeaPad 3 Ryzen 5 - $549.990 CLP
+- MacBook Air M2 13 pulgadas - $1.199.990 CLP
+- Samsung Galaxy A54 - $399.990 CLP
+- iPhone 13 128GB - $699.990 CLP
+- Audífonos JBL Tune 510BT - $29.990 CLP
+- Parlante Bluetooth Sony SRS-XB13 - $34.990 CLP
+
+**Hogar:**
+- Televisor Samsung 50'' 4K UHD - $429.990 CLP
+- Refrigerador LG 420L No Frost - $599.990 CLP
+- Sofá Seccional 3 Cuerpos Gris - $349.990 CLP
+- Set de Sábanas 2 Plazas Algodón - $24.990 CLP
+
+**Accesorios:**
+- Mochila Urbana Jansport SuperBreak - $19.990 CLP
+- Reloj Casio Digital Classic - $14.990 CLP
+
+**Belleza:**
+- Perfume Versace Eros 100ml - $89.990 CLP
+
+Si quieres que te ayude a elegir o buscas algo específico, dime nomás.",list_products,0,False
+2026-06-19T17:05:18.931145,agent,quiero ropa para el frio,"Claro, para el frío te recomiendo estas opciones de ropa que tenemos en Ripley Chile:
+
+- Polerón Adidas Essentials - $34.990 CLP  
+- Chaqueta Columbia Impermeable - $69.990 CLP  
+
+Ambos son ideales para mantener el calor y estar cómodo en días fríos. Si quieres, puedo ayudarte a elegir según tu estilo o necesidad. ¿Te gustaría ver más opciones?",search_product,0,False
+2026-06-19T17:05:37.465413,agent,clima en puerto montt,"En Puerto Montt la temperatura actual es de 10.2°C con un viento de 19.2 km/h. Si necesitas ropa para este clima fresco y ventoso, puedo recomendarte algunas opciones para que estés cómodo y abrigado. ¿Quieres que te muestre algunas prendas?",weather,0,False
+2026-06-19T17:12:08.012708,chatbot,¿Cómo reviso mi pedido?,"Para revisar tu pedido en Ripley, solo necesitas ingresar a tu cuenta Ripley en nuestro sitio web o app. Ahí podrás ver el estado de tus compras, si están en proceso, despachadas o listas para retiro. ¿Quieres que te ayude con los pasos para ingresar a tu cuenta?",consulta,6.503,False
+2026-06-19T17:12:24.321864,agent,¿Cuál es el clima en Puerto Montt?,"Hola, en Puerto Montt la temperatura actual es de 10.2°C y hay un viento de 19.2 km/h. Si necesitas algo más, aquí estoy para ayudarte.",weather,0,False
+2026-06-19T17:12:51.889567,agent,quiero ropa para el frio,"¡Claro! Para el frío te puedo recomendar estas opciones que tenemos disponibles:
+
+- Chaqueta Columbia Impermeable - ropa - $69.990 CLP  
+- Polerón Adidas Essentials - ropa - $34.990 CLP  
+- Polera Nike Sportswear Club - ropa - $19.990 CLP  
+
+La chaqueta Columbia es ideal para mantenerte abrigado y protegido de la lluvia, mientras que el polerón Adidas es una opción cómoda y cálida para el día a día. ¿Quieres que te ayude a elegir según tu estilo o alguna otra característica?",search_product,0,False

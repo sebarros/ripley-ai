@@ -11,6 +11,7 @@ from backend.observability.logger import log_interaction
 from langsmith import traceable
 from langsmith import Client
 import time
+from langsmith import trace
 
 load_dotenv()
 
@@ -221,6 +222,20 @@ def agent_stream(user_input: str):
             latencia=0,
             error=False
         )
+
+        # =========================
+        # METADATA PARA EL CORREO DE PROMOCIÓN
+        # =========================
+        # Se entrega como un último "chunk" especial (un dict, no texto) para
+        # que el frontend (chat_utils.stream_response) pueda guardar el
+        # resultado de la herramienta en st.session_state y así el correo
+        # de "Promoción con productos/clima" use datos reales en vez de
+        # quedar vacío. No afecta el texto que ve el usuario en el chat.
+        if tool_name == "weather" and isinstance(tool_result, dict):
+            yield {"__meta__": True, "type": "weather", "data": tool_result}
+
+        elif tool_name in ("search_product", "list_products") and isinstance(tool_result, list):
+            yield {"__meta__": True, "type": "products", "data": tool_result}
 
 client = Client()
 client.flush()

@@ -5,12 +5,13 @@ import os
 from chatbot_page import render as chatbot_page
 from agent_page import render as agent_page
 from dashboard_page import render as dashboard_page
+from chat_utils import render_sidebar_history, get_logo_html
 
 st.set_page_config(
     page_title="Ripley AI Platform",
     page_icon="🛍️",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 def load_css(path: str):
@@ -50,31 +51,47 @@ st.markdown("""
 </script>
 """, unsafe_allow_html=True)
 
+# ── Registro de chats en la barra lateral ───────────────────
+render_sidebar_history()
+
 nav_bg   = "#1A1230" if is_dark else "#FFFFFF"
 nav_text = "#C084FC" if is_dark else "#6B7280"
 nav_icon = "#C084FC" if is_dark else "#9333EA"
 
-selected = option_menu(
-    menu_title=None,
-    options=["Inicio", "Asistente Virtual", "Agente Inteligente", "Monitoreo"],
-    icons=["house-fill", "chat-dots-fill", "robot", "bar-chart-fill"],
-    orientation="horizontal",
-    default_index=0,
-    styles={
-        "container": {
-            "padding": "8px",
-            "background-color": nav_bg,
-            "border-radius": "16px",
-            "border": "1px solid rgba(107,33,168,0.18)",
-            "box-shadow": "0 2px 10px rgba(107,33,168,0.10)",
-            "margin-bottom": "1.5rem",
+# Permite que el sidebar "salte" a una sección sin que el usuario
+# tenga que hacer clic en el menú de arriba.
+manual_idx = st.session_state.pop("nav_jump", None)
+
+col_logo, col_nav = st.columns([1, 9])
+with col_logo:
+    st.markdown(f"""
+    <div class="app-logo-wrap">{get_logo_html(36)}</div>
+    """, unsafe_allow_html=True)
+
+with col_nav:
+    selected = option_menu(
+        menu_title=None,
+        options=["Inicio", "Asistente Virtual", "Agente Inteligente", "Monitoreo"],
+        icons=["house-fill", "chat-dots-fill", "robot", "bar-chart-fill"],
+        orientation="horizontal",
+        default_index=0,
+        manual_select=manual_idx,
+        key="main_menu",
+        styles={
+            "container": {
+                "padding": "8px",
+                "background-color": nav_bg,
+                "border-radius": "16px",
+                "border": "1px solid rgba(107,33,168,0.18)",
+                "box-shadow": "0 2px 10px rgba(107,33,168,0.10)",
+                "margin-bottom": "1.5rem",
+            },
+            "icon":         {"color": nav_icon, "font-size": "18px"},
+            "nav-link":     {"font-size": "16px", "font-weight": "500",
+                             "color": nav_text, "border-radius": "12px", "padding": "11px 26px"},
+            "nav-link-selected": {"background-color": "#6B21A8", "color": "white", "font-weight": "700"},
         },
-        "icon":         {"color": nav_icon, "font-size": "18px"},
-        "nav-link":     {"font-size": "16px", "font-weight": "500",
-                         "color": nav_text, "border-radius": "12px", "padding": "11px 26px"},
-        "nav-link-selected": {"background-color": "#6B21A8", "color": "white", "font-weight": "700"},
-    },
-)
+    )
 
 if selected == "Inicio":
 
