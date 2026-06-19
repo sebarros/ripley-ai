@@ -1,5 +1,6 @@
 from langchain_core.tools import Tool
 from backend.agent.api_clients import WeatherAPIClient
+from langsmith import traceable
 import re
 import json
 import requests
@@ -10,6 +11,7 @@ weather_client = WeatherAPIClient()
 # =========================
 # WEATHER TOOL
 # =========================
+@traceable(name="tool_weather")
 def weather_tool(city: str):
 
     city = city.lower().strip()
@@ -77,6 +79,7 @@ def load_fakestore_products():
 # =========================
 # SEARCH HYBRID
 # =========================
+@traceable(name="tool_search_product")
 def search_product_tool(query: str):
 
     query = query.lower().strip()
@@ -129,8 +132,9 @@ def search_product_tool(query: str):
 # =========================
 # LIST PRODUCTS
 # =========================
+@traceable(name="tool_list_products")
 def list_products_tool(_):
-
+    
     local = load_local_products()
     remote = load_fakestore_products()
 
