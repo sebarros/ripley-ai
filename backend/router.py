@@ -8,14 +8,13 @@ from backend.security import (
 )
 
 
-def route_request(user_input, mode="chatbot"):
+def route_request(user_input, mode="agent"):
 
     user_id = "streamlit_user"
 
     # =========================
     # RATE LIMIT
     # =========================
-
     if not rate_limit(user_id):
         return iter([
             "Demasiadas solicitudes. Intenta nuevamente en unos minutos."
@@ -24,7 +23,6 @@ def route_request(user_input, mode="chatbot"):
     # =========================
     # VALIDACIÓN
     # =========================
-
     valid, msg = validate_input(user_input)
 
     if not valid:
@@ -33,13 +31,11 @@ def route_request(user_input, mode="chatbot"):
     # =========================
     # SANITIZACIÓN
     # =========================
-
     user_input = sanitize_input(user_input)
 
     # =========================
     # ROUTING
     # =========================
-
     if mode == "agent":
         return agent_stream(user_input)
 

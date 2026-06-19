@@ -35,7 +35,7 @@ def render():
             placeholder = st.empty()
             full_response = ""
 
-            for chunk in route_request(msg):
+            for chunk in route_request(msg, mode="chatbot"):
                 full_response = chunk
                 placeholder.markdown(full_response)
 

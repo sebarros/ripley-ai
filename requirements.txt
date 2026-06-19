@@ -28,3 +28,6 @@ httpx>=0.26.0
 pydantic>=2.0.0
 setuptools>=69.0.0
 wheel>=0.42.0
+
+# STREAMLIT UTIL
+streamlit-autorefresh>=1.0.0

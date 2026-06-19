@@ -1,141 +1,287 @@
-# 🛍️ Ripley Agent - Asistente Inteligente de Compras y Clima
+# Ripley AI - Plataforma Inteligente de Atención al Cliente
 
-Sistema de agente inteligente conversacional que actúa como asistente de compras para Ripley Chile, capaz de consultar clima,
-recomendar ropa y buscar productos utilizando herramientas externas, memoria y planificación de intenciones.
-
----
-
-## 📌 Descripción General
-
-Este proyecto implementa un **agente autónomo basado en LLM (GPT-4.1-mini)** que:
-
-- Interpreta mensajes del usuario
-- Decide qué herramienta usar (clima, productos, catálogo)
-- Mantiene memoria corta y larga del usuario
-- Genera respuestas naturales con contexto
-- Recomienda productos según clima o intención de compra
+Aplicación web desarrollada para Ripley Chile que integra un **Chatbot RAG**, un **Agente Inteligente con herramientas**, y un **Centro de Monitoreo**, permitiendo responder consultas, recomendar productos y visualizar métricas de uso en tiempo real.
 
 ---
 
-## 🧠 Arquitectura del Sistema
+# Descripción General
 
-El sistema está compuesto por 5 módulos principales:
+La plataforma está compuesta por tres módulos principales:
 
-### 1. `ripley_agent.py` (Agente principal)
-- Orquesta todo el flujo del sistema
-- Maneja memoria, planner y herramientas
-- Construye el prompt final para el LLM
-- Ejecuta el loop conversacional
+### 💬 Chatbot RAG
 
-### 2. `planner.py` (Clasificador de intención)
-- Detecta la intención del usuario usando regex o reglas simples
-- Decide qué herramienta usar:
-  - 🌤️ clima
-  - 🛍️ búsqueda de productos
-  - 📦 listado de productos
+Asistente conversacional basado en GPT-4.1-mini que responde utilizando una base de conocimiento de Ripley Chile.
 
-### 3. `api_clients.py` (Integraciones externas)
-- `WeatherAPIClient`: obtiene clima desde Open-Meteo
-- `ProductAPIClient`: obtiene productos desde FakeStore API
+Características:
 
-### 4. `tools.py` (Herramientas del agente)
-Funciones reutilizables:
+* Recuperación de contexto mediante FAISS.
+* Memoria conversacional.
+* Respuestas contextualizadas.
+* Protección contra Prompt Injection.
+* Streaming de respuestas en tiempo real.
 
-- 🌤️ `weather_tool`: consulta clima por ciudad
-- 🔎 `search_product_tool`: busca productos por texto
-- 📋 `list_products_tool`: muestra catálogo
+### 🤖 Agente Inteligente
 
-Todas están registradas en `TOOL_MAP`.
+Agente autónomo capaz de utilizar herramientas externas para resolver tareas específicas.
 
-### 5. `memory.py` (Sistema de memoria)
-- 🧠 Memoria corta (últimos 15 mensajes)
-- 🧠 Memoria larga (perfil del usuario)
-- 📌 Estado conversacional (ej: recomendación post-clima)
-- 🔎 Recuperación básica por similitud de texto
+Características:
 
----
+* Detección de intención mediante Planner.
+* Consulta de clima.
+* Búsqueda de productos.
+* Catálogo híbrido (FakeStore API + catálogo local).
+* Memoria corta y larga.
+* Recomendaciones contextuales.
 
-## 🔄 Flujo del Agente
+### 📊 Centro de Monitoreo
 
-1. Usuario envía mensaje  
-2. Se guarda en memoria corta  
-3. Planner detecta intención  
-4. Se ejecuta herramienta correspondiente:
-   - Clima → API Open-Meteo
-   - Productos → FakeStore API  
-5. Se construye contexto + perfil + resultado tool  
-6. LLM genera respuesta final  
-7. Se guarda en memoria  
+Dashboard desarrollado en Streamlit para visualizar el comportamiento del sistema.
+
+Incluye:
+
+* Total de consultas.
+* Latencia promedio.
+* Tasa de errores.
+* Historial completo de interacciones.
+* Monitoreo de Chatbot y Agente en un único panel.
 
 ---
 
-## 🌤️ Funcionalidad de Clima + Recomendación
+# Arquitectura del Sistema
 
-Cuando el usuario consulta el clima:
+## Frontend
 
-1. Se obtiene ciudad (default: Puerto Montt)
-2. Se consulta API meteorológica
-3. El agente activa estado `SHOW_PRODUCTS`
-4. En el siguiente mensaje afirmativo del usuario:
-   - Recomienda ropa automáticamente
+### `app.py`
+
+Punto de entrada de la aplicación.
+
+Permite navegar entre:
+
+* Chatbot
+* Agente
+* Monitoreo
+
+### `chatbot_page.py`
+
+Interfaz conversacional del Chatbot RAG.
+
+### `agent_page.py`
+
+Interfaz conversacional del Agente Inteligente.
+
+### `dashboard_page.py`
+
+Panel de monitoreo y visualización de métricas.
 
 ---
 
-## 🛍️ Funcionalidades de Productos
+## Backend
 
-El agente puede:
+### `router.py`
 
-- Buscar productos por texto
-- Listar catálogo completo
-- Recomendar productos según clima o contexto
+Encargado de dirigir cada solicitud hacia:
 
-📦 Fuente de datos: https://fakestoreapi.com
+* Chatbot
+* Agente
+
+También aplica:
+
+* Validaciones
+* Sanitización
+* Rate limiting
 
 ---
 
-# 🚀 Cómo ejecutar el proyecto
+## Chatbot RAG
 
-## 🧱 1. Requisitos previos
+### `chatbot.py`
+
+Implementa:
+
+* Embeddings OpenAI
+* Base vectorial FAISS
+* Recuperación de contexto
+* Memoria conversacional
+* Streaming de respuestas
+
+---
+
+## Agente Inteligente
+
+### `ripley_agent.py`
+
+Orquesta todo el flujo del agente:
+
+* Planner
+* Herramientas
+* Memoria
+* LLM
+* Observabilidad
+
+### `planner.py`
+
+Clasifica la intención del usuario y selecciona la herramienta adecuada.
+
+Intenciones soportadas:
+
+* Clima
+* Búsqueda de productos
+* Catálogo
+
+### `tools.py`
+
+Herramientas disponibles:
+
+* `weather_tool`
+* `search_product_tool`
+* `list_products_tool`
+
+### `memory.py`
+
+Sistema de memoria del agente:
+
+* Memoria corta
+* Perfil de usuario
+* Recuperación semántica
+
+---
+
+## Integraciones Externas
+
+### OpenAI / Azure OpenAI
+
+Utilizado para:
+
+* Chatbot RAG
+* Agente Inteligente
+* Embeddings
+
+### Open-Meteo
+
+Consulta meteorológica por ciudad.
+
+### FakeStore API
+
+Fuente adicional de productos.
+
+### Catálogo Local
+
+Archivo JSON propio con productos en CLP.
+
+---
+
+# Flujo General del Sistema
+
+1. Usuario envía una consulta.
+2. El Router valida y procesa la solicitud.
+3. La consulta es enviada al Chatbot o al Agente.
+4. Se recupera contexto o se ejecutan herramientas.
+5. GPT genera la respuesta.
+6. La interacción se registra en el sistema de monitoreo.
+7. Los resultados aparecen en tiempo real en el Dashboard.
+
+---
+
+# 📊 Observabilidad
+
+Todas las interacciones son almacenadas en:
+
+```text
+data/logs/logs.csv
+```
+
+Cada registro contiene:
+
+* Timestamp
+* Tipo (chatbot o agent)
+* Pregunta
+* Respuesta
+* Intención
+* Latencia
+* Error
+
+---
+
+# Cómo ejecutar el proyecto
+
+## 1. Requisitos previos
 
 Antes de ejecutar, asegúrate de tener:
 
-- Docker instalado → https://www.docker.com/
-- Cuenta/API Key de OpenAI o Azure OpenAI
-- Archivo `.env` configurado
+* Docker instalado
+* API Key válida
+* Archivo `.env`
 
 ---
 
-## ⚙️ 2. Configurar variables de entorno
+## 2. Configurar variables de entorno
 
 Crea un archivo `.env` en la raíz del proyecto:
 
 ```env
-OPENAI_API_KEY=tu_api_key
+GITHUB_TOKEN=tu_api_key
 OPENAI_BASE_URL=https://models.inference.ai.azure.com
 ```
-⚠️ Importante:
 
-- No usar comillas
-- No dejar espacios extra
+Importante:
+
+* No usar comillas.
+* No dejar espacios extra.
+* No subir el archivo `.env` al repositorio.
 
 ---
 
-## 🐳 3. Ejecutar el contenedor
+## 3. Construir la imagen Docker
 
-Una vez configurado el `.env`, ejecuta:
+```bash
+docker build -t ripley-ai .
+```
+
+---
+
+## 4. Ejecutar el contenedor
 
 ```bash
 docker run --rm -p 8501:8501 --env-file .env ripley-ai
 ```
-## 🌐 4. Abrir la aplicación
 
-Luego abre en tu navegador:
+---
 
+## 5. Abrir la aplicación
+
+Ingresa desde tu navegador a:
+
+```text
 http://localhost:8501
+```
 
-## 🧪 5. Verificación rápida (si algo falla)
+---
+
+## 6. Verificación rápida
+
+Ver contenedores:
 
 ```bash
 docker ps -a
+```
+
+Ver logs:
+
+```bash
 docker logs <container_id>
 ```
+
+---
+
+# Tecnologías Utilizadas
+
+* Python 3.11
+* Streamlit
+* LangChain
+* OpenAI
+* FAISS
+* Pandas
+* Plotly
+* Docker
+* Open-Meteo API
+* FakeStore API

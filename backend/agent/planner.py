@@ -1,5 +1,6 @@
 import re
 
+
 class Planner:
 
     def create_plan(self, query: str):
@@ -15,7 +16,7 @@ class Planner:
 
         # PRODUCTOS
         if re.search(
-            r"ropa|polera|jean|zapatilla|chaqueta|parka|vestir|iphone|notebook|televisor|celular",
+            r"ropa|polera|poleron|polerón|jean|jeans|zapatilla|zapatillas|chaqueta|parka|vestir|iphone|notebook|televisor|celular|telefono|teléfono|audifono|audífono|mochila|reloj|perfume",
             q
         ):
             return {"tool": "search_product"}

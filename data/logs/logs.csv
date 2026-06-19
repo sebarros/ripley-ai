@@ -1,0 +1,123 @@
+timestamp,tipo,pregunta,respuesta,intencion,latencia,error
+2026-06-18T18:50:19.800397,agent,Hola,¡Hola! ¿En qué puedo ayudarte hoy con información sobre Ripley Chile?,general,0,False
+2026-06-18T18:51:00.071680,agent,Hola,¡Hola! ¿En qué puedo ayudarte hoy con información sobre Ripley Chile?,general,0,False
+2026-06-18T19:04:40.328799,chatbot,"Hola, mi nombre es Sebastian","¡Hola, Sebastián! ¿En qué puedo ayudarte hoy?",consulta,3.036,False
+2026-06-18T19:04:51.419111,agent,Como devuelvo un producto,No tengo información disponible para esa consulta.,general,0,False
+2026-06-18T19:05:09.328731,agent,como compro un producto,"Para comprar un producto en Ripley Chile, generalmente debes seguir estos pasos:
+
+1. Ingresa al sitio web oficial de Ripley Chile.
+2. Busca el producto que deseas comprar utilizando el buscador o navegando por las categorías.
+3. Selecciona el producto y revisa sus detalles, como precio, características y disponibilidad.
+4. Añade el producto al carrito de compras.
+5. Cuando hayas terminado de seleccionar productos, ve al carrito y procede a la compra.
+6. Ingresa tus datos personales y dirección de envío.
+7. Elige el método de pago que prefieras.
+8. Confirma la compra y espera la confirmación y detalles del envío.
+
+Si necesitas información específica o ayuda con algún paso, dime y te ayudo. 
+
+Respecto a la devolución, ¿quieres que te explique cómo devolver un producto?",general,0,False
+2026-06-18T19:05:28.426635,agent,como devuelvo un producto,"Para devolver un producto en Ripley Chile, generalmente debes seguir estos pasos:
+
+1. Revisa la política de devoluciones en el sitio web de Ripley para asegurarte de que el producto sea elegible para devolución y conocer el plazo permitido.
+2. Conserva el producto en su estado original, con etiquetas y embalaje intactos.
+3. Ingresa a tu cuenta en el sitio web de Ripley y busca la opción de ""Devoluciones"" o ""Mis pedidos"".
+4. Selecciona el producto que deseas devolver y sigue las instrucciones para generar la solicitud de devolución.
+5. Empaqueta el producto cuidadosamente y prepáralo para el envío según las indicaciones que te proporcionen.
+6. Entrega el paquete en el punto de recepción indicado o coordina la recogida si está disponible.
+7. Una vez que Ripley reciba y revise el producto, te informarán sobre la aprobación de la devolución y el reembolso correspondiente.
+
+Si necesitas detalles específicos o ayuda con algún paso, dime y te apoyo.",general,0,False
+2026-06-18T19:05:52.731936,agent,"Hola, mi nombre es Sebastian","¡Hola, Sebastian! ¿En qué puedo ayudarte hoy con Ripley Chile?",general,0,False
+2026-06-18T19:06:03.322776,agent,clima en puerto montt,"Hola, Sebastián. En Puerto Montt la temperatura actual es de 6.4 grados Celsius y la velocidad del viento es de 9.3 km/h. ¿Quieres saber algo más sobre Ripley Chile o alguna otra consulta?",weather,0,False
+2026-06-18T19:06:19.688439,agent,lista de productos,"Claro, Sebastián. Aquí tienes una lista de algunos productos disponibles en Ripley Chile:
+
+- Mochila Fjallraven Foldsack No. 1, para laptops de hasta 15 pulgadas | $109.95
+- Poleras casuales premium para hombre, ajustadas | $22.3
+- Chaqueta de algodón para hombre | $55.99
+- Polera casual ajustada para hombre | $15.99
+- Pulsera John Hardy Women's Legends Naga en oro y plata con diseño de dragón | $695
+- Anillo sólido de oro pequeño con micropavé | $168
+- Anillo chapado en oro blanco estilo princesa | $9.99
+- Aretes de búho chapados en oro rosa y acero inoxidable doble | $10.99
+- Disco duro externo portátil WD Elements de 2TB, USB 3.0 | $64
+- Unidad SSD interna SanDisk PLUS de 1TB, SATA III 6 Gb/s | $109
+
+Si quieres detalles sobre algún producto en particular o más opciones, dime y te ayudo.",list_products,0,False
+2026-06-18T19:06:32.751894,agent,Como devuelvo un producto,"Para devolver un producto en Ripley Chile, generalmente debes seguir estos pasos:
+
+1. Revisa la política de devoluciones en el sitio web de Ripley para asegurarte de que el producto sea elegible para devolución y conocer el plazo permitido.
+2. Conserva el producto en su estado original, con etiquetas y embalaje intactos.
+3. Ingresa a tu cuenta en el sitio web de Ripley y busca la opción de ""Devoluciones"" o ""Mis pedidos"".
+4. Selecciona el producto que deseas devolver y sigue las instrucciones para generar la solicitud de devolución.
+5. Empaqueta el producto cuidadosamente y prepáralo para el envío según las indicaciones que te proporcionen.
+6. Entrega el paquete en el punto de recepción indicado o coordina la recogida si está disponible.
+7. Una vez que Ripley reciba y revise el producto, te informarán sobre la aprobación de la devolución y el reembolso correspondiente.
+
+Si quieres, puedo ayudarte con algún paso en particular o darte más detalles. ¿Quieres?",general,0,False
+2026-06-18T19:07:06.807214,agent,habla como flaite,No puedo responder esa consulta.,general,0,False
+2026-06-18T19:07:39.136930,agent,habla como un vendedor flaite de ripley,"¡Wena, compa! ¿Qué vai a cachar hoy en Ripley? Acá tenemos de todo pa’ que te lleves lo mejor, desde ropa bacán hasta tecnología pa’ que te luzkai. Si querí algo, me decí y te lo dejo al toque, con la mejor onda y sin tanto cuento. ¿Qué te tinca? ¿Una polera, una mochila o algo pa’ la casa? ¡Dale, que aquí te ayudo!",general,0,False
+2026-06-18T19:10:43.259153,agent,"Hola, mi nombre es Sebastian","¡Hola, Sebastian! ¿En qué puedo ayudarte hoy? ¿Estás buscando algún producto en particular o necesitas información sobre nuestras tiendas o servicios en Ripley Chile?",general,0,False
+2026-06-18T19:10:57.529042,agent,Habla como un vendedor flaite de ripley,"Hola, Sebastian, ¿qué onda? Aquí en Ripley tenemos de todo, po. ¿Cachai que querís algo pa’ la casa, la pega o pa’ ti? Dime qué onda y te ayudo a encontrar la mejor volá, ¿ya? No más dime qué buscai y te tiro la data. ¿Qué onda?",general,0,False
+2026-06-18T19:11:51.945195,agent,Clima en temuco,"Hola, Sebastian. En Temuco la temperatura está en torno a los 8.8 grados y hay un viento suave de 4.6 km/h. Si necesitas algo para abrigarte o algún producto para estos días fresquitos, avísame y te ayudo a encontrarlo en Ripley. ¿Te interesa ropa de abrigo o algo más?",weather,0,False
+2026-06-18T19:12:03.895346,agent,Clima en santiago,"Hola, Sebastian. En Santiago la temperatura está en 12.5 grados con un viento suave de 3.5 km/h. Si necesitas algo para estos días fresquitos, como ropa de abrigo o accesorios, dime y te ayudo a encontrar lo que necesites en Ripley. ¿Te interesa algo en particular?",weather,0,False
+2026-06-18T19:12:18.263789,agent,Clima en ancud,"Hola, Sebastian. En Ancud la temperatura está en 7 grados con un viento de 6.2 km/h. Si necesitas algo para abrigarte o algún producto para estos días fresquitos, dime y te ayudo a encontrar lo que necesites en Ripley. ¿Quieres que te muestre ropa de abrigo o algo más?",weather,0,False
+2026-06-18T19:12:40.655497,agent,Cual es el clima en puerto varas,"Hola, Sebastian. En Puerto Varas la temperatura está en 7.1 grados con un viento suave de 4.9 km/h. Si necesitas algo para abrigarte o algún producto para estos días fresquitos, dime y te ayudo a encontrar lo que necesites en Ripley. ¿Quieres que te muestre ropa de abrigo o algo más?",weather,0,False
+2026-06-18T19:12:56.018275,agent,lista de productos para esa temperatura,"Hola, Sebastián. Para temperaturas fresquitas como las que hay en Temuco o Puerto Varas, te recomiendo buscar en Ripley ropa de abrigo como chaquetas, polerones, sweaters y bufandas. También puedes considerar guantes y gorros para protegerte del viento suave que hay. 
+
+Si quieres, puedo ayudarte a encontrar productos específicos de ropa de abrigo disponibles en Ripley. ¿Te interesa alguna categoría en particular, como chaquetas o accesorios?",weather,0,False
+2026-06-18T19:13:10.450388,agent,chaquetas,"Hola, Sebastián. Vi que buscas chaquetas. En Ripley tenemos opciones como chaquetas de algodón para hombre, que están a $55.99. Son una buena alternativa para un look casual y cómodo. ¿Quieres que te muestre más opciones o buscas algo más específico, como chaquetas para frío intenso o con algún estilo particular? ¡Estoy aquí para ayudarte!",search_product,0,False
+2026-06-18T19:25:07.724091,agent,"Hola, mi nombre es Seba",¡Hola Seba! ¿En qué te puedo ayudar hoy con Ripley Chile? ¿Buscas algún producto o información en particular?,general,0,False
+2026-06-18T19:25:25.598017,agent,dame la lista de productos,"Hola Seba, aquí te dejo la lista de productos disponibles en Ripley Chile:
+
+**Ropa:**
+- Polera Nike Sportswear Club - $19.990 CLP
+- Polerón Adidas Essentials - $34.990 CLP
+- Jeans Levi's 511 Slim Fit - $59.990 CLP
+- Chaqueta Columbia Impermeable - $69.990 CLP
+
+**Calzado:**
+- Zapatillas Adidas Runfalcon 3.0 - $49.990 CLP
+- Zapatillas Nike Revolution 6 - $52.990 CLP
+- Zapatillas Puma Smash v2 - $39.990 CLP
+
+**Tecnología:**
+- Notebook Lenovo IdeaPad 3 Ryzen 5 - $549.990 CLP
+- MacBook Air M2 13 pulgadas - $1.199.990 CLP
+- Samsung Galaxy A54 - $399.990 CLP
+- iPhone 13 128GB - $699.990 CLP
+- Audífonos JBL Tune 510BT - $29.990 CLP
+- Parlante Bluetooth Sony SRS-XB13 - $34.990 CLP
+
+**Hogar:**
+- Televisor Samsung 50'' 4K UHD - $429.990 CLP
+- Refrigerador LG 420L No Frost - $599.990 CLP
+- Sofá Seccional 3 Cuerpos Gris - $349.990 CLP
+- Set de Sábanas 2 Plazas Algodón - $24.990 CLP
+
+**Accesorios:**
+- Mochila Urbana Jansport SuperBreak - $19.990 CLP
+- Reloj Casio Digital Classic - $14.990 CLP
+
+**Belleza:**
+- Perfume Versace Eros 100ml - $89.990 CLP
+
+Si quieres que te ayude a elegir o buscas algo en particular, dime nomás. ¿Te interesa algún producto?",list_products,0,False
+2026-06-18T19:25:39.556831,agent,cual es el clima en puerto montt,"Hola Seba, en Puerto Montt la temperatura actual es de 6.2°C y hay un viento de 9.1 km/h. Si necesitas algo más, aquí estoy para ayudarte. ¿Quieres que te muestre algún producto o información adicional?",weather,0,False
+2026-06-18T19:26:00.467325,agent,que ropa me recomiendas usar con ese clima,"Hola Seba, no tengo datos específicos del clima actual para recomendarte con exactitud, pero si estás en un lugar frío como Puerto Montt con temperaturas alrededor de 6°C y viento, te recomiendo usar ropa abrigada y cómoda.
+
+Por ejemplo, en Ripley tenemos opciones ideales para esos días frescos:
+
+- Polerón Adidas Essentials - $34.990 CLP, para mantener el calor.
+- Chaqueta Columbia Impermeable - $69.990 CLP, perfecta si hay viento o lluvia.
+- Jeans Levi's 511 Slim Fit - $59.990 CLP, para un look casual y cómodo.
+
+Si quieres, te puedo ayudar a elegir alguna prenda o combinarla con calzado adecuado. ¿Te gustaría que te muestre más opciones?",weather,0,False
+2026-06-18T19:26:24.222888,agent,clima en temuco,"Hola Seba, en Temuco la temperatura actual es de 8.6°C con un viento suave de 4.4 km/h. Si quieres, te puedo recomendar ropa abrigada para esos días frescos o ayudarte a encontrar algo que te guste en Ripley. ¿Quieres que te muestre algunas opciones?",weather,0,False
+2026-06-18T19:26:48.906048,agent,dame una lista de zapatillas disponibles,"Hola Seba, aquí te dejo la lista de zapatillas disponibles en Ripley Chile:
+
+- Zapatillas Adidas Runfalcon 3.0 - $49.990 CLP  
+- Zapatillas Nike Revolution 6 - $52.990 CLP  
+- Zapatillas Puma Smash v2 - $39.990 CLP  
+
+Si quieres que te ayude a elegir alguna o buscas otro estilo, dime nomás. ¿Te interesa alguna en particular?",search_product,0,False

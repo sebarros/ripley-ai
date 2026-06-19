@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Polera Nike Sportswear Club",
+    "price_clp": 19990,
+    "category": "ropa",
+    "source": "ripley"
+  },
+  {
+    "id": 2,
+    "name": "Polerón Adidas Essentials",
+    "price_clp": 34990,
+    "category": "ropa",
+    "source": "ripley"
+  },
+  {
+    "id": 3,
+    "name": "Jeans Levi's 511 Slim Fit",
+    "price_clp": 59990,
+    "category": "ropa",
+    "source": "ripley"
+  },
+  {
+    "id": 4,
+    "name": "Zapatillas Adidas Runfalcon 3.0",
+    "price_clp": 49990,
+    "category": "calzado",
+    "source": "ripley"
+  },
+  {
+    "id": 5,
+    "name": "Zapatillas Nike Revolution 6",
+    "price_clp": 52990,
+    "category": "calzado",
+    "source": "ripley"
+  },
+  {
+    "id": 6,
+    "name": "Zapatillas Puma Smash v2",
+    "price_clp": 39990,
+    "category": "calzado",
+    "source": "ripley"
+  },
+  {
+    "id": 7,
+    "name": "Notebook Lenovo IdeaPad 3 Ryzen 5",
+    "price_clp": 549990,
+    "category": "tecnología",
+    "source": "ripley"
+  },
+  {
+    "id": 8,
+    "name": "MacBook Air M2 13 pulgadas",
+    "price_clp": 1199990,
+    "category": "tecnología",
+    "source": "ripley"
+  },
+  {
+    "id": 9,
+    "name": "Samsung Galaxy A54",
+    "price_clp": 399990,
+    "category": "tecnología",
+    "source": "ripley"
+  },
+  {
+    "id": 10,
+    "name": "iPhone 13 128GB",
+    "price_clp": 699990,
+    "category": "tecnología",
+    "source": "ripley"
+  },
+  {
+    "id": 11,
+    "name": "Televisor Samsung 50'' 4K UHD",
+    "price_clp": 429990,
+    "category": "hogar",
+    "source": "ripley"
+  },
+  {
+    "id": 12,
+    "name": "Refrigerador LG 420L No Frost",
+    "price_clp": 599990,
+    "category": "hogar",
+    "source": "ripley"
+  },
+  {
+    "id": 13,
+    "name": "Sofá Seccional 3 Cuerpos Gris",
+    "price_clp": 349990,
+    "category": "hogar",
+    "source": "ripley"
+  },
+  {
+    "id": 14,
+    "name": "Set de Sábanas 2 Plazas Algodón",
+    "price_clp": 24990,
+    "category": "hogar",
+    "source": "ripley"
+  },
+  {
+    "id": 15,
+    "name": "Mochila Urbana Jansport SuperBreak",
+    "price_clp": 19990,
+    "category": "accesorios",
+    "source": "ripley"
+  },
+  {
+    "id": 16,
+    "name": "Reloj Casio Digital Classic",
+    "price_clp": 14990,
+    "category": "accesorios",
+    "source": "ripley"
+  },
+  {
+    "id": 17,
+    "name": "Audífonos JBL Tune 510BT",
+    "price_clp": 29990,
+    "category": "tecnología",
+    "source": "ripley"
+  },
+  {
+    "id": 18,
+    "name": "Parlante Bluetooth Sony SRS-XB13",
+    "price_clp": 34990,
+    "category": "tecnología",
+    "source": "ripley"
+  },
+  {
+    "id": 19,
+    "name": "Chaqueta Columbia Impermeable",
+    "price_clp": 69990,
+    "category": "ropa",
+    "source": "ripley"
+  },
+  {
+    "id": 20,
+    "name": "Perfume Versace Eros 100ml",
+    "price_clp": 89990,
+    "category": "belleza",
+    "source": "ripley"
+  }
+]

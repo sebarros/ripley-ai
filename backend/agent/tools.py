@@ -1,9 +1,10 @@
 from langchain_core.tools import Tool
-from backend.agent.api_clients import WeatherAPIClient, ProductAPIClient
+from backend.agent.api_clients import WeatherAPIClient
 import re
+import json
+import requests
 
 weather_client = WeatherAPIClient()
-product_client = ProductAPIClient()
 
 
 # =========================
@@ -54,27 +55,75 @@ def weather_tool(city: str):
         "windspeed": data.get("windspeed", "N/A")
     }
 
+# =========================
+# LOAD LOCAL CATALOG
+# =========================
+def load_local_products():
+    with open("data/products.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+
 
 # =========================
-# PRODUCT SEARCH
+# FAKESTORE API
+# =========================
+def load_fakestore_products():
+    try:
+        r = requests.get("https://fakestoreapi.com/products")
+        return r.json()
+    except:
+        return []
+
+
+# =========================
+# SEARCH HYBRID
 # =========================
 def search_product_tool(query: str):
 
-    products = product_client.get_products()
+    query = query.lower().strip()
 
-    results = [
-        p for p in products
-        if query.lower() in p["title"].lower()
+    local = load_local_products()
+    remote = load_fakestore_products()
+
+    keywords = query.split()
+
+    # CATÁLOGO LOCAL
+    local_results = [
+        {
+            "nombre": p["name"],
+            "precio_clp": p["price_clp"],
+            "categoria": p["category"],
+            "source": "local"
+        }
+        for p in local
+        if any(
+            k in p["name"].lower()
+            or k in p["category"].lower()
+            for k in keywords
+        )
     ]
 
+    # FAKESTORE
+    remote_results = [
+        {
+            "nombre": p["title"],
+            "precio_clp": int(float(p["price"]) * 900),
+            "categoria": p["category"],
+            "source": "fakestore"
+        }
+        for p in remote
+        if any(
+            k in p["title"].lower()
+            or k in p["category"].lower()
+            for k in keywords
+        )
+    ]
+
+    results = local_results + remote_results
+
     if not results:
-        results = products[:5]
+        results = local[:5]
 
-    out = "🛍️ Productos:\n"
-    for p in results:
-        out += f"- {p['title']} | ${p['price']}\n"
-
-    return out
+    return results
 
 
 # =========================
@@ -82,13 +131,13 @@ def search_product_tool(query: str):
 # =========================
 def list_products_tool(_):
 
-    products = product_client.get_products()
+    local = load_local_products()
+    remote = load_fakestore_products()
 
-    out = "🛍️ Catálogo:\n"
-    for p in products[:10]:
-        out += f"- {p['title']} | ${p['price']}\n"
-
-    return out
+    return {
+        "local": local[:20],
+        "fakestore": remote[:10]
+    }
 
 
 # =========================
