@@ -1,209 +1,314 @@
-/* =========================
-   GLOBAL SAAS THEME
-========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ══════════════════════════════════════════
+   TOKENS — LIGHT (default)
+══════════════════════════════════════════ */
 :root {
-    --bg: #0b1220;
-    --panel: #0f172a;
-    --card: rgba(17, 24, 39, 0.75);
-    --border: rgba(255,255,255,0.08);
-
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-
-    --user: linear-gradient(135deg, #2563eb, #1d4ed8);
-    --bot: #141c2f;
-
-    --shadow: 0 6px 18px rgba(0,0,0,0.35);
+    --bg:           #F9F7FF;
+    --surface:      #FFFFFF;
+    --surface-alt:  #F3F0FB;
+    --text:         #1E1B2E;
+    --muted:        #6B7280;
+    --border:       rgba(107,33,168,0.14);
+    --primary:      #6B21A8;
+    --primary-lt:   #9333EA;
+    --ripley-soft:  #EDE9FE;
+    --shadow-sm:    0 2px 8px  rgba(107,33,168,0.08);
+    --shadow-md:    0 6px 24px rgba(107,33,168,0.13);
+    --shadow-lg:    0 12px 40px rgba(107,33,168,0.18);
+    --user-bubble:  linear-gradient(135deg,#6B21A8,#9333EA);
+    --success:      #059669;
+    --warning:      #D97706;
+    --error:        #DC2626;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at top, #0f172a, var(--bg));
-    color: var(--text);
+/* ══════════════════════════════════════════
+   TOKENS — DARK
+══════════════════════════════════════════ */
+[data-theme="dark"] {
+    --bg:           #0F0A1E;
+    --surface:      #1A1230;
+    --surface-alt:  #221840;
+    --text:         #EDE9FE;
+    --muted:        #A78BCA;
+    --border:       rgba(167,139,202,0.18);
+    --primary:      #9333EA;
+    --primary-lt:   #C084FC;
+    --ripley-soft:  #2D1F4E;
+    --shadow-sm:    0 2px 10px rgba(0,0,0,0.35);
+    --shadow-md:    0 6px 24px rgba(0,0,0,0.45);
+    --shadow-lg:    0 12px 40px rgba(0,0,0,0.55);
 }
 
-/* =========================
-   SIDEBAR (GLASS STYLE)
-========================= */
-section[data-testid="stSidebar"] {
-    background: rgba(10, 15, 25, 0.95);
-    backdrop-filter: blur(12px);
-    border-right: 1px solid var(--border);
-}
+/* ══════════════════════════════════════════
+   BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
 
-/* =========================
-   TITLES
-========================= */
-h1 {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 20px;
-    font-weight: 600;
-    opacity: 0.95;
-}
-
-h3 {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-p {
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-/* =========================
-   CHAT CONTAINER
-========================= */
-.chat-container {
-    height: 78vh;
-    overflow-y: auto;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    scroll-behavior: smooth;
-}
-
-/* =========================
-   MESSAGE ANIMATION
-========================= */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.chat-user,
-.chat-bot {
-    animation: fadeIn 0.2s ease-in-out;
-}
-
-/* =========================
-   USER BUBBLE (CHATGPT STYLE)
-========================= */
-.chat-user {
-    background: var(--user);
-    color: white;
-    padding: 14px 16px;
-    border-radius: 18px;
-    max-width: 72%;
-    margin-left: auto;
-    box-shadow: var(--shadow);
-    font-size: 14px;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-/* =========================
-   BOT BUBBLE
-========================= */
-.chat-bot {
-    background: var(--bot);
-    color: var(--text);
-    padding: 14px 16px;
-    border-radius: 18px;
-    max-width: 72%;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    font-size: 14px;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-/* =========================
-   CARDS (SAAS GLASS)
-========================= */
-.card {
-    background: var(--card);
-    backdrop-filter: blur(10px);
-    padding: 16px;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    transition: all 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-}
-
-/* =========================
-   METRICS DASHBOARD
-========================= */
-[data-testid="metric-container"] {
-    background: var(--card);
-    backdrop-filter: blur(10px);
-    border-radius: 14px;
-    padding: 14px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-
-/* =========================
-   INPUT FIELD
-========================= */
-input, textarea {
-    background: #0b1220 !important;
-    color: var(--text) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 12px !important;
-    padding: 10px !important;
-}
-
-/* =========================
-   LINKS
-========================= */
-a {
-    color: #60a5fa;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* =========================
-   SCROLLBAR (MODERNO)
-========================= */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
+html, body {
+    margin: 0; padding: 0;
+    font-family: 'Inter','Segoe UI',sans-serif;
     background: var(--bg);
+    color: var(--text);
 }
 
-::-webkit-scrollbar-thumb {
-    background: #1f2937;
-    border-radius: 10px;
+.stApp           { background: var(--bg) !important; }
+.block-container { padding-top: 1.4rem !important; padding-bottom: 2rem !important; max-width: 1200px; }
+
+/* ══════════════════════════════════════════
+   NAVBAR — FIJO ARRIBA
+   Streamlit renderiza el option_menu dentro
+   de .block-container; usamos sticky en el
+   wrapper superior de la app.
+══════════════════════════════════════════ */
+[data-testid="stAppViewContainer"] > section {
+    overflow-y: auto !important;
+}
+/* El primer bloque dentro del área principal
+   (donde vive el option_menu) se queda fijo */
+[data-testid="stAppViewContainer"] > section > div.block-container > div:first-child > div:first-child {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: var(--bg) !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.5rem !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #374151;
+/* ══════════════════════════════════════════
+   TIPOGRAFÍA
+══════════════════════════════════════════ */
+h1 { font-size:26px !important; font-weight:700 !important; color:var(--text) !important; letter-spacing:-0.3px; }
+h2 { font-size:19px !important; font-weight:600 !important; color:var(--text) !important; }
+h3 { font-size:15px !important; font-weight:600 !important; color:var(--primary) !important; }
+p, li { color:var(--muted) !important; line-height:1.65; }
+
+/* ══════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════ */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg,#3B0764,#6B21A8) !important;
+    border-right: none !important;
+    box-shadow: 4px 0 20px rgba(59,7,100,0.3);
+}
+section[data-testid="stSidebar"] * { color:#EDE9FE !important; }
+
+/* ══════════════════════════════════════════
+   CHIPS / SUGERENCIAS — texto blanco
+══════════════════════════════════════════ */
+.stButton > button {
+    background:    var(--primary) !important;
+    color:         #ffffff !important;
+    border:        none !important;
+    border-radius: 12px !important;
+    font-weight:   600 !important;
+    font-size:     13px !important;
+    padding:       0.5rem 1.2rem !important;
+    box-shadow:    0 2px 8px rgba(107,33,168,0.22) !important;
+    transition:    all 0.18s !important;
+}
+.stButton > button:hover {
+    background:  var(--primary-lt) !important;
+    color:       #ffffff !important;
+    box-shadow:  0 4px 16px rgba(147,51,234,0.32) !important;
+    transform:   translateY(-1px) !important;
+}
+.stButton > button * { color: #ffffff !important; }
+
+/* ══════════════════════════════════════════
+   CHAT INPUT — angosto, centrado, tipo Claude
+══════════════════════════════════════════ */
+[data-testid="stBottom"] {
+    display:         flex !important;
+    justify-content: center !important;
+    padding:         0 0 2.4rem !important;
+    background:      transparent !important;
+}
+[data-testid="stBottom"] > div {
+    max-width: 560px !important;
+    width:     100% !important;
+}
+[data-testid="stChatInput"] {
+    width:         100% !important;
+    background:    var(--surface) !important;
+    border:        1.5px solid var(--border) !important;
+    border-radius: 20px !important;
+    box-shadow:    var(--shadow-md) !important;
+    transition:    border-color 0.2s, box-shadow 0.2s;
+    min-height:    64px !important;
+}
+[data-testid="stChatInput"]:focus-within {
+    border-color: var(--primary-lt) !important;
+    box-shadow:   0 0 0 3px rgba(147,51,234,0.15) !important;
+}
+[data-testid="stChatInput"] textarea {
+    background:  transparent !important;
+    color:       var(--text) !important;
+    font-size:   15px !important;
+    min-height:  44px !important;
+    padding:     14px 18px !important;
 }
 
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
-@media (max-width: 768px) {
-    .chat-user,
-    .chat-bot {
-        max-width: 90%;
-    }
+/* ══════════════════════════════════════════
+   INPUTS GENERALES
+══════════════════════════════════════════ */
+input, textarea,
+.stTextInput > div > div > input {
+    background:    var(--surface) !important;
+    color:         var(--text)    !important;
+    border:        1.5px solid var(--border) !important;
+    border-radius: 12px !important;
+}
+input:focus, textarea:focus {
+    border-color: var(--primary-lt) !important;
+    box-shadow: 0 0 0 3px rgba(147,51,234,0.12) !important;
+    outline: none !important;
+}
 
-    .chat-container {
-        height: 72vh;
-        padding: 16px;
-    }
+/* ══════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════ */
+.ripley-card {
+    background:    var(--surface);
+    border:        1px solid var(--border);
+    border-radius: 16px;
+    padding:       1.1rem 1.4rem;
+    box-shadow:    var(--shadow-sm);
+    transition:    box-shadow 0.2s, transform 0.2s;
+    color:         var(--text);
+}
+.ripley-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ripley-card-accent { border-left: 4px solid var(--primary-lt); }
+
+/* ══════════════════════════════════════════
+   MÉTRICAS
+══════════════════════════════════════════ */
+[data-testid="metric-container"] {
+    background:    var(--surface)  !important;
+    border:        1px solid var(--border) !important;
+    border-radius: 16px !important;
+    padding:       1rem 1.2rem !important;
+    box-shadow:    var(--shadow-sm) !important;
+}
+[data-testid="stMetricValue"]  { color: var(--primary) !important; font-weight:700 !important; font-size:26px !important; }
+[data-testid="stMetricLabel"]  { color: var(--muted)   !important; font-size:12px !important; }
+
+/* ══════════════════════════════════════════
+   ALERTS
+══════════════════════════════════════════ */
+[data-testid="stAlert"] {
+    background:    var(--surface-alt) !important;
+    border-left:   4px solid var(--primary) !important;
+    border-radius: 12px !important;
+    color:         var(--text) !important;
+}
+
+/* ══════════════════════════════════════════
+   DATAFRAME
+══════════════════════════════════════════ */
+[data-testid="stDataFrame"] {
+    background:    var(--surface)  !important;
+    border:        1px solid var(--border) !important;
+    border-radius: 14px !important;
+    overflow:      hidden !important;
+}
+
+/* ══════════════════════════════════════════
+   BADGES
+══════════════════════════════════════════ */
+.badge {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           5px;
+    padding:       3px 10px;
+    border-radius: 20px;
+    font-size:     12px;
+    font-weight:   600;
+}
+.badge-online  { background:#D1FAE5; color:#065F46; }
+.badge-warning { background:#FEF3C7; color:#92400E; }
+.badge-error   { background:#FEE2E2; color:#991B1B; }
+.badge-purple  { background:var(--ripley-soft); color:var(--primary); }
+
+/* ══════════════════════════════════════════
+   HERO BANNER
+══════════════════════════════════════════ */
+.hero-banner {
+    background:    linear-gradient(135deg,#3B0764 0%,#7C3AED 60%,#A855F7 100%);
+    border-radius: 22px;
+    padding:       2.4rem 2rem;
+    color:         #fff;
+    box-shadow:    var(--shadow-lg);
+    position:      relative;
+    overflow:      hidden;
+}
+.hero-banner::before {
+    content:''; position:absolute; top:-40px; right:-40px;
+    width:200px; height:200px;
+    background:rgba(255,255,255,0.05); border-radius:50%;
+}
+.hero-banner h1 { color:#fff !important; font-size:28px !important; }
+.hero-banner p  { color:rgba(255,255,255,0.84) !important; font-size:15px; }
+
+/* ══════════════════════════════════════════
+   FEATURE CARDS (HOME)
+══════════════════════════════════════════ */
+.feature-card {
+    background:    var(--surface);
+    border:        1px solid var(--border);
+    border-radius: 18px;
+    padding:       1.4rem;
+    box-shadow:    var(--shadow-sm);
+    transition:    all 0.2s;
+    height:        100%;
+}
+.feature-card:hover { border-color:var(--primary-lt); box-shadow:var(--shadow-md); transform:translateY(-3px); }
+.feature-icon  { font-size:30px; margin-bottom:0.7rem; display:block; }
+.feature-card h3 { font-size:15px !important; font-weight:700 !important; color:var(--text) !important; margin-bottom:0.5rem; }
+.feature-card ul { padding-left:1rem; margin:0; }
+.feature-card ul li { font-size:13px; color:var(--muted) !important; margin-bottom:4px; }
+
+/* ══════════════════════════════════════════
+   SUGGESTION BLOCKS
+══════════════════════════════════════════ */
+.suggestion-block {
+    background:    var(--surface-alt);
+    border:        1px solid var(--border);
+    border-radius: 14px;
+    padding:       1rem 1.2rem;
+}
+.suggestion-block code {
+    background: transparent !important;
+    color:      var(--primary) !important;
+    font-size:  13px;
+}
+
+/* ══════════════════════════════════════════
+   HR
+══════════════════════════════════════════ */
+hr { border:none !important; border-top:1px solid var(--border) !important; margin:1.2rem 0 !important; }
+
+/* ══════════════════════════════════════════
+   PLOTLY
+══════════════════════════════════════════ */
+.js-plotly-plot { border-radius:16px !important; overflow:hidden !important; box-shadow:var(--shadow-sm) !important; }
+
+/* ══════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════ */
+::-webkit-scrollbar       { width:7px; height:7px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:rgba(147,51,234,0.28); border-radius:10px; }
+::-webkit-scrollbar-thumb:hover { background:rgba(147,51,234,0.50); }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width:768px) {
+    .hero-banner { padding:1.6rem 1.2rem; }
+    .hero-banner h1 { font-size:21px !important; }
+    .block-container { padding-top:0.8rem !important; }
+    [data-testid="stBottom"] > div { max-width: 92% !important; }
 }

@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 # Ripley AI - Plataforma Inteligente de Atención al Cliente
+=======
+# Ripley Agent - Asistente Inteligente de Compras y Clima
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 Aplicación web desarrollada para Ripley Chile que integra un **Chatbot RAG**, un **Agente Inteligente con herramientas**, y un **Centro de Monitoreo**, permitiendo responder consultas, recomendar productos y visualizar métricas de uso en tiempo real.
 
 ---
 
+<<<<<<< HEAD
 # Descripción General
+=======
+## Descripción General
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 La plataforma está compuesta por tres módulos principales:
 
@@ -47,13 +55,26 @@ Incluye:
 
 ---
 
+<<<<<<< HEAD
 # Arquitectura del Sistema
+=======
+## Arquitectura del Sistema
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ## Frontend
 
 ### `app.py`
 
+<<<<<<< HEAD
 Punto de entrada de la aplicación.
+=======
+### 2. `planner.py` (Clasificador de intención)
+- Detecta la intención del usuario usando regex o reglas simples
+- Decide qué herramienta usar:
+  - clima
+  - búsqueda de productos
+  - listado de productos
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 Permite navegar entre:
 
@@ -61,10 +82,17 @@ Permite navegar entre:
 * Agente
 * Monitoreo
 
+<<<<<<< HEAD
 ### `chatbot_page.py`
+=======
+- `weather_tool`: consulta clima por ciudad
+- `search_product_tool`: busca productos por texto
+- `list_products_tool`: muestra catálogo
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 Interfaz conversacional del Chatbot RAG.
 
+<<<<<<< HEAD
 ### `agent_page.py`
 
 Interfaz conversacional del Agente Inteligente.
@@ -76,6 +104,17 @@ Panel de monitoreo y visualización de métricas.
 ---
 
 ## Backend
+=======
+### 5. `memory.py` (Sistema de memoria)
+- Memoria corta (últimos 15 mensajes)
+- Memoria larga (perfil del usuario)
+- Estado conversacional (ej: recomendación post-clima)
+- Recuperación básica por similitud de texto
+
+---
+
+## Flujo del Agente
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ### `router.py`
 
@@ -92,7 +131,11 @@ También aplica:
 
 ---
 
+<<<<<<< HEAD
 ## Chatbot RAG
+=======
+## Funcionalidad de Clima + Recomendación
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ### `chatbot.py`
 
@@ -106,12 +149,17 @@ Implementa:
 
 ---
 
+<<<<<<< HEAD
 ## Agente Inteligente
+=======
+## Funcionalidades de Productos
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ### `ripley_agent.py`
 
 Orquesta todo el flujo del agente:
 
+<<<<<<< HEAD
 * Planner
 * Herramientas
 * Memoria
@@ -204,6 +252,14 @@ Cada registro contiene:
 
 # Cómo ejecutar el proyecto
 
+=======
+Fuente de datos: https://fakestoreapi.com
+
+---
+
+# Cómo ejecutar el proyecto
+
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 ## 1. Requisitos previos
 
 Antes de ejecutar, asegúrate de tener:
@@ -231,7 +287,11 @@ Importante:
 
 ---
 
+<<<<<<< HEAD
 ## 3. Construir la imagen Docker
+=======
+## 3. Ejecutar el contenedor
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ```bash
 docker build -t ripley-ai .
@@ -244,6 +304,10 @@ docker build -t ripley-ai .
 ```bash
 docker run --rm -p 8501:8501 --env-file .env ripley-ai
 ```
+<<<<<<< HEAD
+=======
+## 4. Abrir la aplicación
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ---
 
@@ -255,11 +319,15 @@ Ingresa desde tu navegador a:
 http://localhost:8501
 ```
 
+<<<<<<< HEAD
 ---
 
 ## 6. Verificación rápida
 
 Ver contenedores:
+=======
+## 5. Verificación rápida (si algo falla)
+>>>>>>> febced3cfab885ed3fe6efeb6fff4f574c1eb956
 
 ```bash
 docker ps -a
