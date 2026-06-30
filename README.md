@@ -49,6 +49,8 @@ Incluye:
 
 # Arquitectura del Sistema
 
+<img width="1149" height="1369" alt="8f4d3a0e-966e-4e85-8545-72af5c1e3dc6" src="https://github.com/user-attachments/assets/1c97ad02-5709-494e-8138-c5da4594d3db" />
+
 ## Frontend
 
 ### `app.py`
